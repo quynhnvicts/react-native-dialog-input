@@ -42,8 +42,11 @@ class DialogInput extends React.Component{
                 keyboardType={(textProps && textProps.keyboardType)?textProps.keyboardType:'default'}
                 underlineColorAndroid='transparent'
                 placeholder={hintInput}
-                onChangeText={(inputModal) => this.setState({inputModal})}
-		value={this.state.inputModal}
+                onChangeText={(inputModal) => {
+                  this.setState({inputModal});
+                  this.props.onChangeText(inputModal);
+                }}
+		            value={this.state.inputModal}
                 />
             </View>
             <View style={styles.btn_container}>
